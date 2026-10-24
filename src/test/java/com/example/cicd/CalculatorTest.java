@@ -17,7 +17,17 @@ class CalculatorTest {
     void add_shouldSumTwoIntegers() {
         Calculator c = new Calculator();
         assertEquals(5, c.add(2, 3));
-        // TODO: weitere Grenzfälle (z. B. negative Zahlen)
+        
+        assertEquals(-5, c.add(-2, -3));
+        assertEquals(1, c.add(-2, 3));
+        assertEquals(-1, c.add(2, -3));
+        assertEquals(0, c.add(-3, 3));
+        assertEquals(0, c.add(0, 0));
+        assertEquals(Integer.MAX_VALUE, c.add(Integer.MAX_VALUE, 0));
+        assertEquals(Integer.MIN_VALUE, c.add(Integer.MIN_VALUE, 0));
+        assertEquals(10,c.add(2,8));
+        assertEquals(15,c.add(10,5));
+
     }
 
     @Test
