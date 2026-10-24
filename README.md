@@ -132,11 +132,12 @@ mvn -q -DskipTests=false test
 
 ### (5) Dokumentation (2 P.)
 - Ergänze die `README.md` im Main-Branch um den Abschnitt:
-  ```markdown
+  
   ## Übung 1
-  - Autor: <dein Name>
-  - Besonderheit: <1–2 Sätze zu deiner bisherigen Git-Erfahrung>
-  ```
+  - **Autor:** Sandra Sollberger
+
+  - **Besonderheit:**  Die kurzen Schockmomente, in denen ich überzeugt bin, gerade alles gelöscht, zerstört oder ins digitale Nirwana befördert zu haben, werden zum Glück immer seltener. Denn tief in meinem Inneren weiß ich mittlerweile: Git sei Dank ist (fast) alles wieder auffindbar oder wiederherstellbar. Wenn das nicht der Beginn einer wunderbaren Freundschaft ist ;-) .
+  
 - Reiche den **Repo-Link** in eLearning bis **28.10.2026, 23:55** ein.
 
 ---
