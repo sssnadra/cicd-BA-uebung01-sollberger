@@ -4,8 +4,9 @@ public class TextUtils {
 
     public static boolean isPalindrome(String input) {
         if (input == null) return false;
-        String reversed = new StringBuilder(input).reverse().toString();
-        return input.toLowerCase() == reversed.toLowerCase(); // absichtlich falsch
+        String cleaned =  input.toLowerCase();
+        String reversed = new StringBuilder(cleaned).reverse().toString();
+        return cleaned.equals(reversed); // absichtlich falsch
     }
 
     // Leerer Catch-Block + sehr generische Exception
