@@ -11,7 +11,7 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "main" ]
-    paths: [ 'pom.xml', 'src/**', '.github/workflow/build-system.yml' ]
+    paths: [ 'pom.xml', 'src/**', '.github/workflows/build-system.yml' ]
       #Pipeline startet nur bei diesen Änderungen - bei anderen nicht.
 
   pull_request:
