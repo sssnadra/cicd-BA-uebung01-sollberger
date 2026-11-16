@@ -24,6 +24,7 @@ concurrency:
   cancel-in-progress: true
   #Verhindert doppelte Läufe
 
+
 jobs:
   build:
 
@@ -81,9 +82,7 @@ jobs:
           -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
     
 
-           
-         
- 
+  
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
