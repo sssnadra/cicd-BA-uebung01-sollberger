@@ -30,6 +30,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     #runs-on: ubuntu-latest
 
+    #depends to matrix builds
+    strategy:
+      fail-fast: true  
+      matrix:
+        os: [ubuntu-latest, windows-latest] 
+        java: [17,21]
+        exclude:
+          - os: windows-latest
+            java: 21    
+
     steps:
     - uses: actions/checkout@v4
 
@@ -48,16 +58,34 @@ jobs:
       with:
           name: surefire-${{ matrix.os }}-java${{ matrix.java }}
           path: target/surefire-reports
-  
-    strategy:
-      fail-fast: true  
-      matrix:
-        os: [ubuntu-latest, windows-latest] 
-        java: [17,21]
-        exclude:
-          - os: windows-latest
-            java: 21     
+    
+    
+    #SonarCoudQube & Jacoco      
+    - name: Upload JaCoCo HTML 
+      if: always()
+      uses: actions/upload-artifact@v7
+      with:
+          name: jacoco-${{ matrix.os }}-java${{ matrix.java }}
+          path: target/site/jacoco
+
+    - name: SonarQube Cloud Scan (Maven scanner)
+      if: matrix.os == 'ubuntu-latest' && matrix.java == 17 
+      #for code coverage just once (not three times)
+      env:
+        SONAR_TOKEN: ${{ secrets.CICD_Ex2_Token }}
+      run: >
+          mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+          -Dsonar.projectKey=cicd-BA-uebung01-sollberger
+          -Dsonar.organization=sssnadra
+          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+    
+
+           
+         
+ 
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
     #  uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+
