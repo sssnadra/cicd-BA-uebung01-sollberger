@@ -16,5 +16,6 @@ public class App {
         System.out.println("isPalindrome('Anna')? " + TextUtils.isPalindrome("Anna"));
         System.out.println("safeParseInt('42'): " + TextUtils.safeParseInt("42"));
         System.out.println("safeParseInt('x'): " + TextUtils.safeParseInt("x"));
+        System.out.println("test:trigger sonarcoud");
     }
 }
