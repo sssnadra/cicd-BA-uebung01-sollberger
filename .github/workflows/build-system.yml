@@ -11,8 +11,18 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "main" ]
+    paths: [ 'pom.xml', 'src/**', '.github/workflow/build-system.yml' ]
+      #Pipeline startet nur bei diesen Änderungen - bei anderen nicht.
+
   pull_request:
     branches: [ "main" ]
+    paths: [ 'pom.xml', 'src/**', '.github/workflows/build-system.yml' ]
+      #Pipeline startet nur bei diesen Änderungen - bei anderen nicht.
+    
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+  #Verhindert doppelte Läufe
 
 jobs:
   build:
@@ -22,15 +32,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
+        java-version: ${{ matrix.java }}
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+    - name: Upload Surefire Test Reports
+      if: always()
+      uses: actions/upload-artifact@v7
+      with:
+          name: surefire-${{ matrix.os }}-java${{ matrix.java }}
+          path: target/surefire-reports
   
     strategy:
       fail-fast: true  
