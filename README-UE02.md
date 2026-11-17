@@ -1,3 +1,5 @@
+[![Java CI with Maven](https://github.com/sssnadra/cicd-BA-uebung01-sollberger/actions/workflows/build-system.yml/badge.svg)](https://github.com/sssnadra/cicd-BA-uebung01-sollberger/actions/workflows/build-system.yml)
+
 # UE02 — CI Pipeline with Matrix Builds, Coverage & SonarCloud (24 pts)
 
 **Goal:** Extend your UE01 repository with a production-ready CI pipeline using GitHub Actions: 
