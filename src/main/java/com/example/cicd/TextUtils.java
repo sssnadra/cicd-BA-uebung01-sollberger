@@ -18,4 +18,6 @@ public class TextUtils {
         }
         return 0; // „Fallback“ – diskutabel
     }
+
+
 }

@@ -76,7 +76,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.CICD_Ex2_Token }}
       run: >
           mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-          -Dsonar.projectKey=cicd-BA-uebung01-sollberger
+          -Dsonar.projectKey=sssnadra_cicd-BA-uebung01-sollberger
           -Dsonar.organization=sssnadra
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
