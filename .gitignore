@@ -1,29 +1,17 @@
-# Maven
+# Maven Build-Ordner (nicht ins Git committen)
 target/
 
-# IDE/OS
+# IDE & OS-spezifische Dateien
 *.iml
 .idea/
 .vscode/
 .DS_Store
 
-# Ignore Git files
-.git
-.gitignore
-
-# Ignore dependency and build folders
-node_modules
-dist
-build
-
-# Ignore temporary files
+# Temporäre Dateien & Logs
 *.log
 *.tmp
 *.swp
 
-# Ignore environment files
+# Environment-Dateien (Sicherheitsrisiko)
 .env
 .env.local
-
-# Optionally ignore Dockerfile itself
-Dockerfile

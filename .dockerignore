@@ -1,0 +1,21 @@
+.DS_Store
+/target/*
+target/surefire-reports/*
+
+# Maven Build-Ergebnisse (lokal erzeugte JARs/Klassen/Reports)
+target/
+
+# Git-Dateien
+.git/
+.gitignore
+
+# Betriebssystem- & IDE-Dateien
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+
+# CI/CD Workflows & Dokumentation
+.github/
+*.md
